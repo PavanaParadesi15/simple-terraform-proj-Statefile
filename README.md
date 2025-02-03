@@ -103,6 +103,14 @@ Another important usecase of Terraform
 * Isolate terraform state files for different environments like Dev, QA, Pre-Prod, PROD. 
 
 
+## Terraform Modules
+* Modules is a way of writing reusable components.
+### Existing Modules
+* Any re-usable code can be used as Modules for other terraform scripts. 
+* Once we reference some re-usable code as modules, we can use these modules in some other terraform scripts. 
+* Terraform, before executing the script, it executes modules. This saves lot of time and effort in writing repeated code. 
+* Existing modules are the current modules that terraform offers in its documentation. 
+ 
 
 
 
