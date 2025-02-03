@@ -59,6 +59,21 @@ resource "aws_dynamodb_table" "terraform_lock" {
   }
 }
 
+terraform {
+  backend "s3" {
+    encrypt = true
+    bucket  = "<account_id>-terraform-states"
+    key     = "development/service-name.tfstate"
+    dynamodb_table = "terraform-lock"
+  }
+}
+
+# example of 'partial configuration':
+# https://www.terraform.io/docs/backends/config.html#partial-configuration
+#
+# cat config/backend-dev.conf
+
+
 // Creating a new resource - EC2 instance. Defining parameters
 resource "aws_instance" "app_server" {
   ami           = "ami-04b4f1a9cf54c11d0"
@@ -68,3 +83,4 @@ resource "aws_instance" "app_server" {
     Name = "Terraform_Demo"
   }
 }
+
